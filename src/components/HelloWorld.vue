@@ -2,11 +2,12 @@
 import { useStore } from '@src/store';
 import { appSettingMutations } from '@src/store/modules/AppSetting';
 import { computed } from 'vue'
+import Button from "@src/components/common/Button.vue"
 
 defineProps<{ msg: string }>()
 const store = useStore();
 
-const count = computed(() => store.state?.appSetting?.count ?? 0)
+const count = computed(() => store.state.appSetting.count)
 
 const increaseCount = () => {
   store.commit(appSettingMutations.increaseCount, 1)
@@ -14,31 +15,21 @@ const increaseCount = () => {
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1 class="text-3xl font-bold">{{ msg }}</h1>
 
   <div class="card">
-    <button type="button" @click="increaseCount">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
+    <Button @click="increaseCount" class="test">count is {{ count }}</Button>
   </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the official Vue + Vite
-    starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .read-the-docs {
   color: #888;
+}
+
+.card {
+  button {
+    background-color: rgb(0, 97, 241);
+  }
 }
 </style>
