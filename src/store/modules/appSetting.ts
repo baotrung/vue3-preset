@@ -1,5 +1,5 @@
-import { Module } from "vuex";
-import { AppSettingState, RootState } from "../type";
+import { Module } from 'vuex';
+import { AppSettingState, RootState } from '../type';
 
 //#region state
 const initialState = (): AppSettingState => ({
@@ -9,8 +9,8 @@ const initialState = (): AppSettingState => ({
 
 //#region mutations
 export const appSettingMutations = {
-  increaseCount: "appSetting/increaseCount",
-  decreaseCount: "appSetting/decreaseCount",
+  increaseCount: 'appSetting/increaseCount',
+  decreaseCount: 'appSetting/decreaseCount',
 };
 
 const increaseCount = (state: AppSettingState, amount: number) => {

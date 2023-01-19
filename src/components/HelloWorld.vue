@@ -1,24 +1,26 @@
 <script setup lang="ts">
 import { useStore } from '@src/store';
 import { appSettingMutations } from '@src/store/modules/AppSetting';
-import { computed } from 'vue'
-import Button from "@src/components/common/Button.vue"
+import { computed } from 'vue';
+import CustomButton from '@src/components/common/CustomButton.vue';
 
-defineProps<{ msg: string }>()
+defineProps<{ msg: string }>();
 const store = useStore();
 
-const count = computed(() => store.state.appSetting.count)
+const count = computed(() => store.state.appSetting.count);
 
 const increaseCount = () => {
-  store.commit(appSettingMutations.increaseCount, 1)
-}
+  store.commit(appSettingMutations.increaseCount, 1);
+};
 </script>
 
 <template>
   <h1 class="text-3xl font-bold">{{ msg }}</h1>
 
   <div class="card">
-    <Button @click="increaseCount" class="test">count is {{ count }}</Button>
+    <custom-button class="test" @click="increaseCount">
+      count is {{ count }}
+    </custom-button>
   </div>
 </template>
 
